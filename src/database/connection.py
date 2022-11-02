@@ -28,3 +28,7 @@ def execute_query(query, params=None):
         return cursor
     except OSError as e:
         print(f"The error '{e}' occurred or the hero name is already taken")
+
+#===========DONT Edit above this
+
+
