@@ -6,17 +6,17 @@ from database.connection import execute_query
 #""")
 #print(list(heroes))
 
-#def select_all():
-#    query = """
-#        SELECT * from ability_types
-#    """
+def select_all():
+    query = """
+        SELECT * from ability_types
+    """
 
-#    list_of_heroes = execute_query(query).fetchall()
-#    print(list_of_heroes)
-#    for record in list_of_heroes:
-#        print(record[1])
+    list_of_heroes = execute_query(query).fetchall()
+    print(list_of_heroes)
+    for record in list_of_heroes:
+         print(record[1])
 
-#select_all()
+select_all()
 
 #heroes = execute_query("""
 #SELECT * FROM heroes
