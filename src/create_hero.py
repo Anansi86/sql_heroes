@@ -10,7 +10,7 @@ def create_hero():
         INSERT INTO ability_types (name)
         VALUES (%s);
     """
-   
+    
     heroName = input('Who are you new guy? ')
     heroAboutMe = input('catchphrase? ')
     heroBio = input('what is your story? ')
@@ -21,6 +21,8 @@ def create_hero():
     execute_query(query_abilities, (heroPower,))
 
 create_hero()
+
+
 #bio(select_all)
 #select_all()
 
