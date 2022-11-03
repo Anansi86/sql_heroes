@@ -10,7 +10,13 @@ def view_all():
     ON abilities.ability_type_id = ability_types.id
     """
     list_of_heroes = execute_query(query).fetchall()
-    print(list_of_heroes)
+    for hero in list_of_heroes:
+        print(hero[1] + ":")
+        print("    " + hero[2])
+        print("    " + hero[3])
+        print("    Power: " + hero[4])
+        print("---")
+        print("")
     
 view_all()
 
