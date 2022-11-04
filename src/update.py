@@ -1,15 +1,17 @@
 from database.connection import execute_query
 
-def hidden_rows():
+def update_hero():
     
-    query_update = """
-        UPDATE INTO heroes (name, about_me, biography)
-        VALUES (%s, %s, %s)
-        RETURNING id;
+    query = """
+        UPDATE heroes
+        SET name = 'somethingElse'
+        WHERE id = %s
     """
 
-    update_hero = input('Who are you new guy? ')
+    updateName = input('What happened ')
+   # updateAboutMe = input('I have changed ')
+   # updateBio = input('I am new ')
 
-    change = execute_query(query_update, (heroName, heroAboutMe, heroBio)).fetchall()
+    execute_query(query, (updateName,))
 
-hidden_rows()
+update_hero()
