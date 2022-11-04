@@ -21,6 +21,9 @@ def view_all():
     
 view_all()
 
+
+#def select_hero():
+
 #heroes = execute_query("""
 #SELECT *
 #FROM ability_types
