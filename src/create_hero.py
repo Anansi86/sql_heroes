@@ -1,24 +1,33 @@
 from database.connection import execute_query
-from pprint import pprint as bio
 
 def create_hero():
     query = """
         INSERT INTO heroes (name, about_me, biography)
-        VALUES (%s, %s, %s);
+        VALUES (%s, %s, %s)
+        RETURNING id;
     """
     query_abilities = """
         INSERT INTO ability_types (name)
-        VALUES (%s);
+        VALUES (%s)
+        RETURNING id;
     """
-    
+    query_pivot = """
+        INSERT INTO abilities (hero_id, ability_type_id)
+        VALUES (%s, %s)
+
+    """    
     heroName = input('Who are you new guy? ')
     heroAboutMe = input('catchphrase? ')
     heroBio = input('what is your story? ')
     heroPower = input('What are your powers ')
 
 
-    execute_query(query, (heroName, heroAboutMe, heroBio))
-    execute_query(query_abilities, (heroPower,))
+    hero_id = execute_query(query, (heroName, heroAboutMe, heroBio)).fetchall()
+    ability_types_id = execute_query(query_abilities, (heroPower,)).fetchall()
+    execute_query(query_pivot, (hero_id[0][0], ability_types_id[0][0]))
+    
+#    print(hero_id[0][0])
+#    print(ability_types_id[0][0])
 
 create_hero()
 

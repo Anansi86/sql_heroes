@@ -1,5 +1,6 @@
 from database.connection import execute_query
 
+
 def view_all():
     query = """
     SELECT heroes.id, heroes.name, heroes.about_me, heroes.biography, ability_types.name
